@@ -1,0 +1,24 @@
+<svg class="penguin bob" viewBox="0 0 120 140" role="img" aria-label="Bingo si burung penguin">
+    <!-- toga (robe) -->
+    <path d="M30 84 C28 68 28 56 44 54 L76 54 C92 56 92 68 88 86 L88 114 L32 114 Z" fill="#E8EAF6"/>
+    <path d="M44 84 L76 84 L70 114 L50 114 Z" fill="#FFFFFF"/>
+    <path d="M54 56 L66 56" stroke="#E65100" stroke-width="2.5" fill="none"/>
+    <!-- body -->
+    <ellipse cx="60" cy="82" rx="33" ry="28" fill="#18223F"/>
+    <!-- head -->
+    <circle cx="60" cy="54" r="24" fill="#18223F"/>
+    <!-- face -->
+    <circle cx="60" cy="56" r="14" fill="#FFE2C2"/>
+    <!-- eyes -->
+    ${eyes}
+    <!-- beak -->
+    <polygon points="60,60 56,68 64,68" fill="#F2692E"/>
+    <!-- feet -->
+    <ellipse cx="47" cy="110" rx="11" ry="5.5" fill="#F2692E"/>
+    <ellipse cx="73" cy="110" rx="11" ry="5.5" fill="#F2692E"/>
+    <!-- toga trim -->
+    <path d="M34 90 L38 108 L82 108 L86 90 Z" fill="#C8D6F0"/>
+    <!-- wing -->
+    <path d="M46 76 Q40 84 44 92" stroke="#18223F" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M74 76 Q80 84 76 92" stroke="#18223F" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </svg>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Penguin Bingo Check</title>
+<style>
+.penguin{
+  width:200px; height:auto;
+  transform-box:fill-box;
+  transform-origin:center;
+}
+.penguin .lid{transform-origin:center; animation:blink 5s infinite}
+.penguin .bob{animation:bob 3.2s ease-in-out infinite}
+.penguin.jump{transform:scale(1.14) translateY(-18px)}
+.penguin.nod{transform:rotate(-14deg) translateX(-4px)}
+.penguin.wave{animation:wave 1.4s ease-in-out}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@keyframes wave{0%,100%{transform:translateX(0)}50%{transform:translateX(-12px)}}
+@keyframes blink{0%,92%,100%{transform:scaleY(0)}95%{transform:scaleY(1)}}
+</style>
+</head>
+<body>
+<h1>Penguin Bingo (sidik jari SVG)</h1>
+<!-- Penguin SVG from index.html line 1276 -->
+<svg class="penguin bob" viewBox="0 0 120 140" role="img" aria-label="Bingo si burung penguin">
+    <!-- toga (robe) -->
+    <path d="M30 84 C28 68 28 56 44 54 L76 54 C92 56 92 68 88 86 L88 114 L32 114 Z" fill="#E8EAF6"/>
+    <path d="M44 84 L76 84 L70 114 L50 114 Z" fill="#FFFFFF"/>
+    <path d="M54 56 L66 56" stroke="#E65100" stroke-width="2.5" fill="none"/>
+    <!-- body -->
+    <ellipse cx="60" cy="82" rx="33" ry="28" fill="#18223F"/>
+    <!-- head -->
+    <circle cx="60" cy="54" r="24" fill="#18223F"/>
+    <!-- face -->
+    <circle cx="60" cy="56" r="14" fill="#FFE2C2"/>
+    <!-- eyes -->
+    <circle cx="49" cy="53" r="6" fill="#18223F"/>
+    <circle cx="71" cy="53" r="6" fill="#18223F"/>
+    <circle cx="51" cy="51" r="2.5" fill="#fff"/>
+    <circle cx="73" cy="51" r="2.5" fill="#fff"/>
+    <g class="lid"><ellipse cx="49" cy="53" rx="6.5" ry="6" fill="#F28A3C"/><ellipse cx="71" cy="53" rx="6.5" ry="6" fill="#F28A3C"/></g>
+    <!-- beak -->
+    <polygon points="60,60 56,68 64,68" fill="#F2692E"/>
+    <!-- feet -->
+    <ellipse cx="47" cy="110" rx="11" ry="5.5" fill="#F2692E"/>
+    <ellipse cx="73" cy="110" rx="11" ry="5.5" fill="#F2692E"/>
+    <!-- toga trim -->
+    <path d="M34 90 L38 108 L82 108 L86 90 Z" fill="#C8D6F0"/>
+    <!-- wing -->
+    <path d="M46 76 Q40 84 44 92" stroke="#18223F" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M74 76 Q80 84 76 92" stroke="#18223F" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>
+<p>Klik penguin ini untuk "lompat" (jump), panah kiri/kanan untuk "condong" (nod), Spasi untuk "tepuk" (wave).</p>
+<script>
+// Quick interactivity test
+const svg = document.querySelector('.penguin');
+svg.style.cursor = 'pointer';
+svg.addEventListener('click', e => {
+  svg.classList.remove('jump','nod','wave');
+  void svg.offsetWidth;
+  svg.classList.add('jump');
+  setTimeout(() => svg.classList.remove('jump'), 700);
+  svg.classList.add('wave');
+  setTimeout(() => svg.classList.remove('wave'), 1400);
+  svg.title = 'Hai, saya Bingo! Klik lagi atau panah + spasi, ya!';
+  e.preventDefault();
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+    svg.classList.remove('nod');
+    void svg.offsetWidth;
+    svg.classList.add('nod');
+    setTimeout(() => svg.classList.remove('nod'), 600);
+    e.preventDefault();
+  } else if(e.key === ' ' || e.key === 'Spacebar'){
+    svg.classList.remove('jump');
+    void svg.offsetWidth;
+    svg.classList.add('jump');
+    setTimeout(() => svg.classList.remove('jump'), 800);
+    e.preventDefault();
+  }
+});
+</script>
+</body>
+</html>
